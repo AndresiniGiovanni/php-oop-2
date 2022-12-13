@@ -72,7 +72,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $ingredients . ' ' ?>
                             </p>
                             <div>
-                                Peso
+                                Weight: 
                                 <?php echo $foodDog->getWeight() ?>g.
                             </div>
                         </div>
@@ -102,7 +102,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Peso
+                                Weight: 
                                 <?php echo $gamesDog->getWeight() ?>g.
                             </div>
                         </div>
@@ -132,7 +132,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Peso
+                                Weight: 
                                 <?php echo $kennelDog->getWeight() ?>g.
                             </div>
                         </div>
@@ -167,7 +167,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $ingredients . ' ' ?>
                             </p>
                             <div>
-                                Peso
+                                Weight: 
                                 <?php echo $foodCat->getWeight() ?>g.
                             </div>
                         </div>
@@ -196,7 +196,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Peso
+                                Weight: 
                                 <?php echo $gamesCat->getWeight() ?>g.
                             </div>
                         </div>
@@ -226,7 +226,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Peso
+                                Weight: 
                                 <?php echo $kennelCat->getWeight() ?>g.
                             </div>
                         </div>
