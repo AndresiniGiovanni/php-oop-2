@@ -16,12 +16,6 @@ include_once __DIR__ . './Models/Kennels.php';
 
 $categorydog = new Category('dog');
 var_dump($categorydog);
-
-
-
-$product = new Product('dog.jpg', 'busta', 2.80, $categorydog);
-var_dump($product);
-
 $foodDog = new Food('dog.jpg', 'busta', 46.99, $categorydog, ['Salmone', 'Agnello', 'Maiale'], 12000);
 var_dump($foodDog);
 $gamesDog = new Games('bone.jpg', 'Bone For Dogs', 12.99, $categorydog, ['White', 'Black', 'Red'], 200);
