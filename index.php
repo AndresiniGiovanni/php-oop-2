@@ -15,22 +15,17 @@ include_once __DIR__ . './Models/Games.php';
 include_once __DIR__ . './Models/Kennels.php';
 
 $categorydog = new Category('dog');
-var_dump($categorydog);
-$foodDog = new Food('dog.jpg', 'busta', 46.99, $categorydog, ['Salmone', 'Agnello', 'Maiale'], 12000);
-var_dump($foodDog);
+$foodDog = new Food('dog.jpg', 'Bag', 46.99, $categorydog, ['Salmone', 'Agnello', 'Maiale'], 12000);
 $gamesDog = new Games('bone.jpg', 'Bone For Dogs', 12.99, $categorydog, ['White', 'Black', 'Red'], 200);
-var_dump($gamesDog);
-$kennelDog = new kennels('kennel.jpg', 'kennel', 50, $categorydog, ['Black', 'White', 'Red'], 2500, '58X46X38cm');
-var_dump($kennelDog);
+$kennelDog = new kennels('kennel.jpg', 'kennel', 32.99, $categorydog, ['Black', 'White', 'Red'], 2500, '58X46X38cm');
+
 
 
 $categorycat = new Category('cat');
-$foodCat = new Food('cat.jpg', 'cans', 15.34, $categorycat, ['Pollo', 'Tacchino', 'Salmone'], 4800);
-var_dump($foodCat);
-$gamesCat = new Games('Bells.jpg', 'Bells For Cat', 8.99, $categorycat, ['White', 'Black', 'Red'], 200);
-var_dump($gamesCat);
-$kennelCat = new kennels('kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'White', 'Red'], 1000, '40X40X2cm');
-var_dump($kennelCat);
+$foodCat = new Food('cat.jpg', 'Cans', 15.34, $categorycat, ['Pollo', 'Tacchino', 'Salmone'], 4800);
+$gamesCat = new Games('Balls.jpg', 'Balls For Cat', 8.99, $categorycat, ['White', 'Black', 'Red'], 200);
+$kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'White', 'Red'], 1000, '40X40X2cm');
+
 
 
 ?>
@@ -47,119 +42,187 @@ var_dump($kennelCat);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <section style="background-color: #eee;">
+
+        <!--  INIZIO CARD CANI   -->
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
-                    <div class="card">
+                    <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
-                            <p class="lead mb-0">Today's Combo Offer</p>
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;">
-                                <p class="text-white mb-0 small">x4</p>
-                            </div>
                         </div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/4.webp"
-                            class="card-img-top" alt="Laptop" />
+                        <img src="./img/dog/<?php echo $foodDog->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                <p class="small text-danger"><s>$1099</s></p>
-                            </div>
-
                             <div class="d-flex justify-content-between mb-3">
-                                <h5 class="mb-0">HP Notebook</h5>
-                                <h5 class="text-dark mb-0">$999</h5>
+                                <h5 class="mb-0">
+                                    <?php echo $foodDog->getTitle() ?>
+                                </h5>
+                                <h5 class="text-dark mb-0">
+                                    <?php echo $foodDog->getPrice() ?>&euro;
+                                </h5>
                             </div>
-
-                            <div class="d-flex justify-content-between mb-2">
-                                <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p>
-                                <div class="ms-auto text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+                            <p>
+                                ingredients:
+                                <?php foreach (($foodDog->getIngredients()) as $ingredients)
+                                    echo $ingredients . ' ' ?>
+                            </p>
+                            <div>
+                                Peso
+                                <?php echo $foodDog->getWeight() ?>g.
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-md-0">
-                    <div class="card">
+
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
-                            <p class="lead mb-0">Today's Combo Offer</p>
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;">
-                                <p class="text-white mb-0 small">x2</p>
-                            </div>
                         </div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/7.webp"
-                            class="card-img-top" alt="Laptop" />
+                        <img src="./img/dog/<?php echo $gamesDog->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                <p class="small text-danger"><s>$1199</s></p>
-                            </div>
-
                             <div class="d-flex justify-content-between mb-3">
-                                <h5 class="mb-0">HP Envy</h5>
-                                <h5 class="text-dark mb-0">$1099</h5>
+                                <h5 class="mb-0">
+                                    <?php echo $gamesDog->getTitle() ?>
+                                </h5>
+                                <h5 class="text-dark mb-0">
+                                    <?php echo $gamesDog->getPrice() ?>&euro;
+                                </h5>
                             </div>
-
-                            <div class="d-flex justify-content-between mb-2">
-                                <p class="text-muted mb-0">Available: <span class="fw-bold">7</span></p>
-                                <div class="ms-auto text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
+                            <p>
+                                colors:
+                                <?php foreach (($gamesDog->getColor()) as $color)
+                                    echo $color . ' ' ?>
+                            </p>
+                            <div>
+                                Peso
+                                <?php echo $gamesDog->getWeight() ?>g.
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 mb-4 mb-md-0">
-                    <div class="card">
+
+
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
-                            <p class="lead mb-0">Today's Combo Offer</p>
-                            <div class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-                                style="width: 35px; height: 35px;">
-                                <p class="text-white mb-0 small">x3</p>
-                            </div>
                         </div>
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/5.webp"
-                            class="card-img-top" alt="Gaming Laptop" />
+                        <img src="./img/dog/<?php echo $kennelDog->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
-                            <div class="d-flex justify-content-between">
-                                <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-                                <p class="small text-danger"><s>$1399</s></p>
-                            </div>
-
                             <div class="d-flex justify-content-between mb-3">
-                                <h5 class="mb-0">Toshiba B77</h5>
-                                <h5 class="text-dark mb-0">$1299</h5>
+                                <h5 class="mb-0">
+                                    <?php echo $kennelDog->getTitle() ?>
+                                </h5>
+                                <h5 class="text-dark mb-0">
+                                    <?php echo $kennelDog->getPrice() ?>&euro;
+                                </h5>
                             </div>
-
-                            <div class="d-flex justify-content-between mb-2">
-                                <p class="text-muted mb-0">Available: <span class="fw-bold">5</span></p>
-                                <div class="ms-auto text-warning">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
+                            <p>
+                                colors:
+                                <?php foreach (($kennelDog->getColor()) as $color)
+                                    echo $color . ' ' ?>
+                            </p>
+                            <div>
+                                Peso
+                                <?php echo $kennelDog->getWeight() ?>g.
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!--  INIZIO CARD GATTI   -->
+
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card my-card">
+                        <div class="d-flex justify-content-between p-3">
+                        </div>
+                        <img src="./img/cat/<?php echo $foodCat->getImage() ?>" class="card-img-top my-img" alt="" />
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">
+                                    <?php echo $foodCat->getTitle() ?>
+                                </h5>
+                                <h5 class="text-dark mb-0">
+                                    <?php echo $foodCat->getPrice() ?>&euro;
+                                </h5>
+                            </div>
+                            <p>
+                                ingredients:
+                                <?php foreach (($foodCat->getIngredients()) as $ingredients)
+                                    echo $ingredients . ' ' ?>
+                            </p>
+                            <div>
+                                Peso
+                                <?php echo $foodCat->getWeight() ?>g.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card my-card">
+                        <div class="d-flex justify-content-between p-3">
+                        </div>
+                        <img src="./img/cat/<?php echo $gamesCat->getImage() ?>" class="card-img-top my-img" alt="" />
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">
+                                    <?php echo $gamesCat->getTitle() ?>
+                                </h5>
+                                <h5 class="text-dark mb-0">
+                                    <?php echo $gamesCat->getPrice() ?>&euro;
+                                </h5>
+                            </div>
+                            <p>
+                                colors:
+                                <?php foreach (($gamesCat->getColor()) as $color)
+                                    echo $color . ' ' ?>
+                            </p>
+                            <div>
+                                Peso
+                                <?php echo $gamesCat->getWeight() ?>g.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+                    <div class="card my-card">
+                        <div class="d-flex justify-content-between p-3">
+                        </div>
+                        <img src="./img/cat/<?php echo $kennelCat->getImage() ?>" class="card-img-top my-img" alt="" />
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">
+                                    <?php echo $kennelCat->getTitle() ?>
+                                </h5>
+                                <h5 class="text-dark mb-0">
+                                    <?php echo $kennelCat->getPrice() ?>&euro;
+                                </h5>
+                            </div>
+                            <p>
+                                colors:
+                                <?php foreach (($kennelCat->getColor()) as $color)
+                                    echo $color . ' ' ?>
+                            </p>
+                            <div>
+                                Peso
+                                <?php echo $kennelCat->getWeight() ?>g.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
