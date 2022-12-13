@@ -21,11 +21,8 @@ class Food extends Product
     }
     public function setIngredients($ingredients)
     {
-        if (count($ingredients)) {
-            $this->ingredients = $ingredients;
-        } else {
-            $this->ingredients = ["None"];
-        }
+
+        $this->ingredients = $ingredients;
         return $this;
     }
 

@@ -1,20 +1,36 @@
 <?php
 class Category
 {
-    private string $species;
-    public function __construct(string $_species)
+    private string $animals;
+    private string $icons;
+    public function __construct(string $_animals, string $_icons = 'icon.jpg')
     {
-        $this->setSpecies($_species);
+        $this->setAnimals($_animals);
+        $this->setIcons($_icons);
+
 
     }
-    public function getSpecies()
+    public function getAnimals()
     {
-        return $this->species;
+        return $this->animals;
     }
 
-    public function setSpecies($species)
+    public function setAnimals($animals)
     {
-        $this->species = $species;
+        $this->animals = $animals;
+
+        return $this;
+    }
+
+
+    public function getIcons()
+    {
+        return $this->icons;
+    }
+
+    public function setIcons($icons)
+    {
+        $this->icons = $icons;
 
         return $this;
     }

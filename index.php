@@ -14,22 +14,20 @@ include_once __DIR__ . './Models/Food.php';
 include_once __DIR__ . './Models/Games.php';
 include_once __DIR__ . './Models/Kennels.php';
 
+
 $categorydog = new Category('dog');
-$foodDog = new Food('dog.jpg', 'Bag', 46.99, $categorydog, ['Salmone', 'Agnello', 'Maiale'], 12000);
+$iconsDog = new Category('icon.jpg');
+$foodDog = new Food('dog.jpg', 'Bag', 46.99, $categorydog, ['Salmone,', 'Agnello,', 'Maiale'], 12000);
 $gamesDog = new Games('bone.jpg', 'Bone For Dogs', 12.99, $categorydog, ['White', 'Black', 'Red'], 200);
 $kennelDog = new kennels('kennel.jpg', 'kennel', 32.99, $categorydog, ['Black', 'White', 'Red'], 2500, '58X46X38cm');
 
 
-
 $categorycat = new Category('cat');
-$foodCat = new Food('cat.jpg', 'Cans', 15.34, $categorycat, ['Pollo', 'Tacchino', 'Salmone'], 4800);
+$iconsCat = new Category('icon.jpg');
+$foodCat = new Food('cat.jpg', 'Cans', 15.34, $categorycat, ['Pollo,', 'Tacchino,', 'Salmone'], 4800);
 $gamesCat = new Games('Balls.jpg', 'Balls For Cat', 8.99, $categorycat, ['White', 'Black', 'Red'], 200);
 $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'White', 'Red'], 1000, '40X40X2cm');
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +52,10 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
             <div class="row">
                 <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
                     <div class="card my-card">
-                        <div class="d-flex justify-content-between p-3">
+                        <div class="d-flex justify-content-between p-1">
                         </div>
+                        <img src="./img/dog/<?php echo $iconsDog->getIcons() ?>" alt=""
+                            class="my-icons position-absolute">
                         <img src="./img/dog/<?php echo $foodDog->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
@@ -67,7 +67,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                 </h5>
                             </div>
                             <p>
-                                ingredients:
+                                Ingredients:
                                 <?php foreach (($foodDog->getIngredients()) as $ingredients)
                                     echo $ingredients . ' ' ?>
                             </p>
@@ -83,12 +83,15 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                     <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
                         </div>
+                        <img src="./img/dog/<?php echo $iconsDog->getIcons() ?>" alt=""
+                            class="my-icons position-absolute">
                         <img src="./img/dog/<?php echo $gamesDog->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
                                 <h5 class="mb-0">
                                     <?php echo $gamesDog->getTitle() ?>
                                 </h5>
+
                                 <h5 class="text-dark mb-0">
                                     <?php echo $gamesDog->getPrice() ?>&euro;
                                 </h5>
@@ -111,6 +114,8 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                     <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
                         </div>
+                        <img src="./img/dog/<?php echo $iconsDog->getIcons() ?>" alt=""
+                            class="my-icons position-absolute">
                         <img src="./img/dog/<?php echo $kennelDog->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
@@ -144,6 +149,8 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                     <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
                         </div>
+                        <img src="./img/cat/<?php echo $iconsDog->getIcons() ?>" alt=""
+                            class="my-icons position-absolute">
                         <img src="./img/cat/<?php echo $foodCat->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
@@ -155,7 +162,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                 </h5>
                             </div>
                             <p>
-                                ingredients:
+                                Ingredients:
                                 <?php foreach (($foodCat->getIngredients()) as $ingredients)
                                     echo $ingredients . ' ' ?>
                             </p>
@@ -171,6 +178,8 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                     <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
                         </div>
+                        <img src="./img/cat/<?php echo $iconsDog->getIcons() ?>" alt=""
+                            class="my-icons position-absolute">
                         <img src="./img/cat/<?php echo $gamesCat->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
@@ -199,6 +208,8 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                     <div class="card my-card">
                         <div class="d-flex justify-content-between p-3">
                         </div>
+                        <img src="./img/cat/<?php echo $iconsDog->getIcons() ?>" alt=""
+                            class="my-icons position-absolute">
                         <img src="./img/cat/<?php echo $kennelCat->getImage() ?>" class="card-img-top my-img" alt="" />
                         <div class="card-body">
                             <div class="d-flex justify-content-between mb-3">
@@ -221,8 +232,6 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
