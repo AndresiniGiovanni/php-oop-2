@@ -4,16 +4,17 @@ include_once __DIR__ . '/Product.php';
 
 class kennels extends Product
 {
-    private array $color;
-    private int $weight;
-    private string $size;
+
+    public array $color;
+    public string $size;
+
     function __construct(string $_image, string $_title, float $_price, Category $_category, array $_color, int $_weight, string $_size)
     {
         parent::__construct($_image, $_title, $_price, $_category);
 
         $this->setcolor($_color);
         $this->setWeight($_weight);
-        $this->setSize($_size);
+        $this->setSize($_size, );
 
     }
 
@@ -27,19 +28,6 @@ class kennels extends Product
         $this->color = $color;
         return $this;
     }
-
-
-    public function getWeight()
-    {
-        return $this->weight;
-    }
-    public function setWeight($weight)
-    {
-        $this->weight = $weight;
-        return $this;
-    }
-
-
 
     public function getSize()
     {

@@ -9,24 +9,29 @@ Il cliente potrà sia comprare i prodotti come ospite, senza doversi registrarsi
 Il cliente effettua il pagamento dei prodotti nel carrello con la carta di credito, che non deve essere scaduta. -->
 
 <?php
-include_once __DIR__ . './Models/Category.php';
-include_once __DIR__ . './Models/Food.php';
-include_once __DIR__ . './Models/Games.php';
-include_once __DIR__ . './Models/Kennels.php';
+require __DIR__ . './Models/Category.php';
+require __DIR__ . './Models/Food.php';
+require __DIR__ . './Models/Games.php';
+require __DIR__ . './Models/Kennels.php';
 
 
 $categorydog = new Category('dog');
 $iconsDog = new Category('icon.jpg');
 $foodDog = new Food('dog.jpg', 'Bag', 46.99, $categorydog, ['Salmone,', 'Agnello,', 'Maiale'], 12000);
-$gamesDog = new Games('bone.jpg', 'Bone For Dogs', 12.99, $categorydog, ['White', 'Black', 'Red'], 200);
-$kennelDog = new kennels('kennel.jpg', 'kennel', 32.99, $categorydog, ['Black', 'White', 'Red'], 2500, '58X46X38cm');
+$gamesDog = new Games('bone.jpg', 'Bone For Dogs', 12.99, $categorydog, ['White, ', 'Black, ', 'Red'], 200);
+$kennelDog = new kennels('kennel.jpg', 'kennel', 32.99, $categorydog, ['Green, ', 'White, ', 'Red'], 2500, '58x46x38cm');
 
+/*------------------------*/
 
 $categorycat = new Category('cat');
 $iconsCat = new Category('icon.jpg');
 $foodCat = new Food('cat.jpg', 'Cans', 15.34, $categorycat, ['Pollo,', 'Tacchino,', 'Salmone'], 4800);
-$gamesCat = new Games('Balls.jpg', 'Balls For Cat', 8.99, $categorycat, ['White', 'Black', 'Red'], 200);
-$kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'White', 'Red'], 1000, '40X40X2cm');
+$gamesCat = new Games('Balls.jpg', 'Balls For Cat', 8.99, $categorycat, ['White, ', 'Black, ', 'Green'], 200);
+$kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black, ', 'White, ', 'Blue'], 1000, '40x40x2cm');
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +50,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
 </head>
 
 <body>
-    <section style="background-color: #eee;">
+    <section>
 
         <!--  INIZIO CARD CANI   -->
         <div class="container py-5">
@@ -72,12 +77,13 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $ingredients . ' ' ?>
                             </p>
                             <div>
-                                Weight: 
+                                Weight:
                                 <?php echo $foodDog->getWeight() ?>g.
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
                     <div class="card my-card">
@@ -102,7 +108,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Weight: 
+                                Weight:
                                 <?php echo $gamesDog->getWeight() ?>g.
                             </div>
                         </div>
@@ -132,8 +138,12 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Weight: 
+                                Weight:
                                 <?php echo $kennelDog->getWeight() ?>g.
+                            </div>
+                            <div>
+                                Size:
+                                <?php echo $kennelDog->getSize() ?>
                             </div>
                         </div>
                     </div>
@@ -167,12 +177,13 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $ingredients . ' ' ?>
                             </p>
                             <div>
-                                Weight: 
+                                Weight:
                                 <?php echo $foodCat->getWeight() ?>g.
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
                     <div class="card my-card">
@@ -196,7 +207,7 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Weight: 
+                                Weight:
                                 <?php echo $gamesCat->getWeight() ?>g.
                             </div>
                         </div>
@@ -226,8 +237,12 @@ $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black', 'Wh
                                     echo $color . ' ' ?>
                             </p>
                             <div>
-                                Weight: 
+                                Weight:
                                 <?php echo $kennelCat->getWeight() ?>g.
+                            </div>
+                            <div>
+                                Size:
+                                <?php echo $kennelCat->getSize() ?>
                             </div>
                         </div>
                     </div>

@@ -1,26 +1,29 @@
 <?php
 include_once __DIR__ . '/Category.php';
+include_once __DIR__ . '/../Traits/Weightable.php';
 
 class Product
 {
-    protected string $image;
-    protected string $title;
-    protected float $price;
-    public Category $category;
+
+    use Weightable;
+
+    public string $image;
+    public string $title;
+    public float $price;
+    public $category;
 
     function __construct(string $_image, string $_title, float $_price, Category $_category)
     {
+
         $this->setImage($_image);
         $this->setTitle($_title);
         $this->setPrice($_price);
-        $this->category = $_category;
 
     }
 
     public function getImage()
     {
         return $this->image;
-
     }
     public function setImage($image)
     {
