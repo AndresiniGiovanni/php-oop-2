@@ -13,6 +13,7 @@ require __DIR__ . './Models/Category.php';
 require __DIR__ . './Models/Food.php';
 require __DIR__ . './Models/Games.php';
 require __DIR__ . './Models/Kennels.php';
+include_once __DIR__ . '/Traits/Weightable.php';
 
 
 $categorydog = new Category('dog');
@@ -28,8 +29,6 @@ $iconsCat = new Category('icon.jpg');
 $foodCat = new Food('cat.jpg', 'Cans', 15.34, $categorycat, ['Pollo,', 'Tacchino,', 'Salmone'], 4800);
 $gamesCat = new Games('Balls.jpg', 'Balls For Cat', 8.99, $categorycat, ['White, ', 'Black, ', 'Green'], 200);
 $kennelCat = new kennels('Kennel.jpg', 'kennel', 29, $categorycat, ['Black, ', 'White, ', 'Blue'], 1000, '40x40x2cm');
-
-
 
 
 ?>

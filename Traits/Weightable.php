@@ -12,6 +12,9 @@ trait Weightable
 
     public function setWeight($weight)
     {
+        if (!is_int($weight)) {
+            throw new Exception("Value Error");
+        }
         $this->weight = $weight;
     }
 
